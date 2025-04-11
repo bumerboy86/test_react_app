@@ -1,0 +1,58 @@
+.company_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.company_details_functional {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.company_details_functional p {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  vertical-align: middle;
+}
+
+.company_details_functional_buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.company_details_item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.company_details_item_title {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.company_details_item_agreement {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

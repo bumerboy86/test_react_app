@@ -1,0 +1,33 @@
+.main_menu {
+  width: 65px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: var(--main_menu);
+  padding: 20px 6px;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.main_menu button {
+  background: var(--main_menu);
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.main_menu button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.main_menu button:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.main_menu section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}

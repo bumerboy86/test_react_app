@@ -1,0 +1,12 @@
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px;
+}
+
+.cont_open {
+  margin-left: 315px;
+}

@@ -1,0 +1,14 @@
+.home_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.home_page p {
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}

@@ -1,0 +1,56 @@
+.sideBar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -250px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 250px;
+  background-color: var(--white);
+  padding: 20px;
+}
+
+.sideBar_open {
+  left: 65px;
+  transition: left 0.3s ease-in-out;
+}
+
+.sideBar_logo {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  vertical-align: middle;
+}
+
+.sideBar_logo_sub {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.24px;
+  vertical-align: middle;
+}
+
+.sideBar_hr {
+  height: 1px;
+  margin: 20px 0;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.sideBar_buttons {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: auto;
+  box-sizing: content-box;
+}
+
+.sideBar_footer_txt {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.24px;
+  color: rgba(0, 0, 0, 0.5);
+}
