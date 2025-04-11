@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BackDrop } from "../BackDrop/BackDrop";
-import styles from "./LoginModal.module.css";
+import styles from "./Modal.module.css";
 import { ButtonBrand } from "../Buttons/ButtonBrand";
 import { useDispatch } from "react-redux";
 import { setAuthUser } from "../../store/slices/userSlice";
@@ -40,7 +40,7 @@ export const LoginModal = ({ open, setOpen }) => {
 
   return (
     <>
-      <BackDrop open={open} setOpen={setOpen}>
+      <BackDrop open={open}>
         <form onClick={(e) => e.stopPropagation()} className={styles.loginForm}>
           <h2 className="form_title">Sign in to your account</h2>
           <input

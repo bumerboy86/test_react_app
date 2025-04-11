@@ -7,11 +7,17 @@ import XIcon from "../../assets/X.svg";
 import { formatDateTo } from "../../utils/formatDate";
 import Select, { components } from "react-select";
 import { usePathCompanyByIdMutation } from "../../store/services/company_api";
+import { useDispatch } from "react-redux";
+import { setCompany } from "../../store/slices/companySlice";
 
 export const CompanyDetails = ({ companyData }) => {
+  const dispatch = useDispatch();
+  const [editMode, setEditMode] = useState(false);
   const [patchCompany, { isLoading, isSuccess, data }] =
     usePathCompanyByIdMutation();
   const [updatedData, setUpdatedData] = useState({
+    name: companyData?.name,
+    shortName: companyData?.shortName,
     contractNo: companyData?.contract.no,
     issueDate: formatDateTo(companyData?.contract.issue_date, "YYYYMMDD", "-"),
     businessEntity: (typeof companyData?.businessEntity === "string"
@@ -23,9 +29,28 @@ export const CompanyDetails = ({ companyData }) => {
   console.log(companyData);
 
   useEffect(() => {
-    console.log("isSuccess:", isSuccess);
-    console.log("isLoading:", isLoading);
-    console.log("data:", data);
+    if (companyData) {
+      setUpdatedData({
+        name: companyData?.name,
+        shortName: companyData?.shortName,
+        contractNo: companyData?.contract.no,
+        issueDate: formatDateTo(
+          companyData?.contract.issue_date,
+          "YYYYMMDD",
+          "-"
+        ),
+        businessEntity: (typeof companyData?.businessEntity === "string"
+          ? [companyData.businessEntity]
+          : companyData?.businessEntity || [])[0],
+        type: companyData?.type || [],
+      });
+    }
+  }, [editMode]);
+
+  useEffect(() => {
+    if (isSuccess && data) {
+      dispatch(setCompany(data));
+    }
   }, [isLoading, isSuccess, data]);
 
   const Option = (props) => {
@@ -54,8 +79,6 @@ export const CompanyDetails = ({ companyData }) => {
     </components.MultiValue>
   );
 
-  const [editMode, setEditMode] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUpdatedData((prevData) => ({
@@ -72,12 +95,6 @@ export const CompanyDetails = ({ companyData }) => {
   };
 
   const handleSubmit = () => {
-    console.log({
-      ...updatedData,
-      id: companyData.id,
-      name: companyData.name,
-      shortName: companyData.shortName,
-    });
     patchCompany({ ...updatedData, id: companyData.id });
     setEditMode(false);
   };
